@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BExSTEM - Empowering Innovation Through STEM</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+z-index: 1000;
+}
+.modal.active {
+display: flex;
+}
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FFFFFF',
+secondary: '#E5E5E5',
+accent: '#FF3B30'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+</head>
+<body class="bg-black">
+<nav class="fixed top-0 w-full bg-primary z-50">
+<div class="container mx-auto px-6">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center">
+<a href="#" class="text-black text-3xl font-bold tracking-wider">BE<span class="text-accent">X</span>STEM</a>
+</div>
+<div class="hidden md:block">
+<div class="flex items-center space-x-8">
+<a href="#about" class="text-black hover:text-secondary">About</a>
+<a href="#competition" class="text-black hover:text-secondary">Competition</a>
+<a href="#register" class="text-black hover:text-secondary">Register</a>
+<a href="#mentors" class="text-black hover:text-secondary">Become a Judge</a>
+<a href="#sponsors" class="text-black hover:text-secondary">Sponsors</a>
+<button onclick="showDonateModal('bronze')" class="bg-black text-white px-6 py-2 !rounded-button hover:bg-gray-600 transition-colors duration-300">Donate</button>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<section id="hero" class="relative min-h-[90vh] flex flex-col items-center justify-center bg-black">
+<div class="container mx-auto px-6 text-center">
+<h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Innovate for <span class="text-accent">Impact</span></h1>
+<p class="text-xl text-gray-300 mb-4 max-w-2xl mx-auto">BExSTEM empowers students to create innovative solutions that make a real difference in people's lives.</p>
+<p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">Join our competition to transform your ideas into impactful realities and be part of the next generation of innovators.</p>
+<div class="flex flex-wrap gap-4 justify-center mb-16">
+<button onclick="showRegistrationModal('highschool')" class="bg-white text-black px-8 py-3 !rounded-button hover:bg-gray-200 transition-colors duration-300 text-lg">High School Registration</button>
+<button onclick="showRegistrationModal('university')" class="bg-black text-white border-2 border-white px-8 py-3 !rounded-button hover:bg-gray-900 transition-colors duration-300 text-lg">University Registration</button>
+</div>
+</div>
+</section>
+</section>
+<section id="about" class="py-20 bg-gray-900">
+<div class="container mx-auto px-6">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-4xl font-bold mb-8 text-white">Our Mission</h2>
+<p class="text-lg text-gray-300 mb-12">BExSTEM was born from a simple yet powerful idea - when students combine entrepreneurship with STEM education, they can create solutions that change lives. Inspired by real stories like our founder's friend who developed an assistive bottle opener for his grandmother after her stroke, we believe in the power of purpose-driven innovation.</p>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-black p-8 rounded-lg shadow-lg text-white">
+<div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<i class="ri-lightbulb-line text-accent text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Innovate</h3>
+<p class="text-gray-600">Develop creative solutions to real-world challenges</p>
+</div>
+<div class="bg-black p-8 rounded-lg shadow-lg text-white">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<i class="ri-team-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Connect</h3>
+<p class="text-gray-600">Work with industry mentors and like-minded peers</p>
+</div>
+<div class="bg-black p-8 rounded-lg shadow-lg text-white">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<i class="ri-rocket-line text-primary text-2xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4">Impact</h3>
+<p class="text-gray-600">Transform your ideas into real-world solutions</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="competition" class="py-20">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-16 text-white">Competition Process</h2>
+<div class="grid md:grid-cols-4 gap-8">
+<div class="relative">
+<div class="bg-white p-8 rounded-lg shadow-lg h-full">
+<div class="absolute -top-4 left-4 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold">1</div>
+<h3 class="text-xl font-semibold mb-4 mt-2">Submit Your Idea</h3>
+<p class="text-gray-600">Present your innovative solution that addresses a real community need</p>
+</div>
+</div>
+<div class="relative">
+<div class="bg-white p-8 rounded-lg shadow-lg h-full">
+<div class="absolute -top-4 left-4 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold">2</div>
+<h3 class="text-xl font-semibold mb-4 mt-2">Initial Pitch</h3>
+<p class="text-gray-600">Present to our panel of "sharks" - industry experts and entrepreneurs</p>
+</div>
+</div>
+<div class="relative">
+<div class="bg-white p-8 rounded-lg shadow-lg h-full">
+<div class="absolute -top-4 left-4 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold">3</div>
+<h3 class="text-xl font-semibold mb-4 mt-2">Development</h3>
+<p class="text-gray-600">Work with mentors to refine and develop your solution</p>
+</div>
+</div>
+<div class="relative">
+<div class="bg-white p-8 rounded-lg shadow-lg h-full">
+<div class="absolute -top-4 left-4 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold">4</div>
+<h3 class="text-xl font-semibold mb-4 mt-2">Final Round</h3>
+<p class="text-gray-600">Present your refined solution for the chance to win and implement your idea</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mentors" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-4xl font-bold mb-8">Become a Judge/Mentor</h2>
+<p class="text-lg text-gray-700 mb-12">Share your expertise and help shape the next generation of innovators. As a judge or mentor, you'll play a crucial role in guiding students and selecting groundbreaking solutions.</p>
+<button onclick="showMentorModal()" class="bg-black text-white px-8 py-3 !rounded-button hover:bg-gray-800 transition-colors duration-300 text-lg">Apply as Judge/Mentor</button>
+</div>
+</div>
+</section>
+<section id="sponsors" class="py-20">
+<div class="container mx-auto px-6">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-4xl font-bold mb-8 text-white">Support Innovation</h2>
+<p class="text-lg text-gray-300 mb-12">Your support helps us empower the next generation of innovators. Every contribution makes a difference in bringing life-changing solutions to reality.</p>
+<div class="grid md:grid-cols-3 gap-8 mb-12">
+<div class="bg-black p-8 rounded-lg shadow-lg text-white">
+<h3 class="text-2xl font-semibold mb-4">Bronze</h3>
+<p class="text-4xl font-bold mb-6">$1,000</p>
+<ul class="text-left space-y-4 mb-8">
+<li class="flex items-center"><i class="ri-check-line text-accent mr-2"></i>Logo on website</li>
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>Social media mention</li>
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>Event recognition</li>
+</ul>
+<button onclick="showDonateModal('bronze')" class="w-full bg-black text-white px-6 py-3 !rounded-button hover:bg-gray-800 transition-colors duration-300">Sponsor Now</button>
+</div>
+<div class="bg-black p-8 rounded-lg shadow-lg text-white">
+<h3 class="text-2xl font-semibold mb-4">Gold</h3>
+<p class="text-4xl font-bold mb-6">$5,000</p>
+<ul class="text-left space-y-4 mb-8">
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>All Bronze benefits</li>
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>Judge position</li>
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>Workshop opportunity</li>
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>Premium placement</li>
+</ul>
+<button onclick="showDonateModal('gold')" class="w-full bg-black text-white px-6 py-3 !rounded-button hover:bg-gray-800 transition-colors duration-300">Sponsor Now</button>
+</div>
+<div class="bg-black p-8 rounded-lg shadow-lg text-white">
+<h3 class="text-2xl font-semibold mb-4">Platinum</h3>
+<p class="text-4xl font-bold mb-6">$10,000</p>
+<ul class="text-left space-y-4 mb-8">
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>All Gold benefits</li>
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>Naming rights</li>
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>VIP access</li>
+<li class="flex items-center"><i class="ri-check-line text-primary mr-2"></i>Press release</li>
+</ul>
+<button onclick="showDonateModal('platinum')" class="w-full bg-black text-white px-6 py-3 !rounded-button hover:bg-gray-800 transition-colors duration-300">Sponsor Now</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-white text-black py-12">
+<div class="container mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">BE<span class="text-accent">X</span>STEM</h3>
+<p class="text-gray-400">Empowering innovation through STEM education</p>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+<li><a href="#competition" class="text-gray-400 hover:text-white">Competition</a></li>
+<li><a href="#register" class="text-gray-400 hover:text-white">Register</a></li>
+<li><a href="#mentors" class="text-gray-400 hover:text-white">Become a Judge</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contact</h4>
+<ul class="space-y-2">
+<li class="flex items-center"><i class="ri-mail-line mr-2"></i>info@bexstem.org</li>
+<li class="flex items-center"><i class="ri-phone-line mr-2"></i>(555) 123-4567</li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white"><i class="ri-linkedin-fill text-2xl"></i></a>
+<a href="#" class="text-gray-400 hover:text-white"><i class="ri-twitter-fill text-2xl"></i></a>
+<a href="#" class="text-gray-400 hover:text-white"><i class="ri-instagram-fill text-2xl"></i></a>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+<p>&copy; 2025 BExSTEM. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</main>
+<!-- Registration Modal -->
+<div id="registrationModal" class="modal">
+<div class="bg-black rounded-lg p-8 max-w-md w-full mx-4 relative text-white">
+<button onclick="closeModal('registrationModal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+<i class="ri-close-line text-2xl"></i>
+</button>
+<h3 class="text-2xl font-bold mb-6" id="modalTitle">Registration</h3>
+<form id="registrationForm" class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+<input type="text" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-white focus:border-transparent bg-gray-800 text-white">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+<input type="email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">School/University</label>
+<input type="text" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-white focus:border-transparent bg-gray-800 text-white">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Project Idea (Brief Description)</label>
+<textarea required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-white focus:border-transparent bg-gray-800 text-white" rows="4"></textarea>
+</div>
+<button type="submit" class="w-full bg-white text-black px-6 py-3 !rounded-button hover:bg-gray-200 transition-colors duration-300">Submit Registration</button>
+</form>
+</div>
+</div>
+<!-- Mentor Modal -->
+<div id="mentorModal" class="modal">
+<div class="bg-black rounded-lg p-8 max-w-md w-full mx-4 relative text-white">
+<button onclick="closeModal('mentorModal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+<i class="ri-close-line text-2xl"></i>
+</button>
+<h3 class="text-2xl font-bold mb-6">Become a Judge/Mentor</h3>
+<form id="mentorForm" class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+<input type="text" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-white focus:border-transparent bg-gray-800 text-white">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+<input type="email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Company/Organization</label>
+<input type="text" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-white focus:border-transparent bg-gray-800 text-white">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Area of Expertise</label>
+<input type="text" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-white focus:border-transparent bg-gray-800 text-white">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Why do you want to be a judge/mentor?</label>
+<textarea required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-white focus:border-transparent bg-gray-800 text-white" rows="4"></textarea>
+</div>
+<button type="submit" class="w-full bg-white text-black px-6 py-3 !rounded-button hover:bg-gray-200 transition-colors duration-300">Submit Application</button>
+</form>
+</div>
+</div>
+<!-- Donate Modal -->
+<div id="donateModal" class="modal">
+<div class="bg-black rounded-lg p-8 max-w-md w-full mx-4 relative text-white">
+<button onclick="closeModal('donateModal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+<i class="ri-close-line text-2xl"></i>
+</button>
+<h3 class="text-2xl font-bold mb-6">Sponsorship Details</h3>
+<form id="donateForm" class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Organization Name</label>
+<input name="organization" type="text" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Contact Person</label>
+<input name="contact" type="text" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+<input name="email" type="email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+<input name="phone" type="tel" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1">Sponsorship Level</label>
+<select name="sponsorshipLevel" id="sponsorshipLevel" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-white focus:border-transparent bg-gray-800 text-white">
+<option value="bronze">Bronze - $1,000</option>
+<option value="gold">Gold - $5,000</option>
+<option value="platinum">Platinum - $10,000</option>
+</select>
+</div>
+<div class="border-t border-gray-200 pt-4 mt-4">
+<h4 class="font-medium mb-2">Payment Method</h4>
+<div class="grid grid-cols-3 gap-4">
+<button type="button" class="flex flex-col items-center justify-center p-4 border rounded-lg hover:border-primary focus:border-primary focus:ring-2 focus:ring-primary">
+<i class="ri-visa-line text-2xl mb-1"></i>
+<span class="text-sm">Visa</span>
+</button>
+<button type="button" class="flex flex-col items-center justify-center p-4 border rounded-lg hover:border-primary focus:border-primary focus:ring-2 focus:ring-primary">
+<i class="ri-mastercard-line text-2xl mb-1"></i>
+<span class="text-sm">Mastercard</span>
+</button>
+<button type="button" class="flex flex-col items-center justify-center p-4 border rounded-lg hover:border-primary focus:border-primary focus:ring-2 focus:ring-primary">
+<i class="ri-paypal-line text-2xl mb-1"></i>
+<span class="text-sm">PayPal</span>
+</button>
+</div>
+</div>
+<button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-gray-800 transition-colors duration-300 mt-6">Proceed to Payment</button>
+<p class="text-xs text-gray-500 text-center mt-4">You will be redirected to our secure payment gateway to complete your donation.</p>
+</form>
+</div>
+</div>
+<script>
+function showRegistrationModal(type) {
+const modal = document.getElementById('registrationModal');
+const title = document.getElementById('modalTitle');
+title.textContent = type === 'highschool' ? 'High School Registration' : 'University Registration';
+modal.classList.add('active');
+}
+function showMentorModal() {
+document.getElementById('mentorModal').classList.add('active');
+}
+function showDonateModal(level) {
+const modal = document.getElementById('donateModal');
+const select = document.getElementById('sponsorshipLevel');
+select.value = level;
+modal.classList.add('active');
+}
+function closeModal(modalId) {
+document.getElementById(modalId).classList.remove('active');
+}
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+e.preventDefault();
+closeModal('registrationModal');
+showSuccessMessage('Registration submitted successfully!');
+});
+document.getElementById('mentorForm').addEventListener('submit', function(e) {
+e.preventDefault();
+closeModal('mentorModal');
+showSuccessMessage('Application submitted successfully!');
+});
+document.getElementById('donateForm').addEventListener('submit', function(e) {
+e.preventDefault();
+closeModal('donateModal');
+showSuccessMessage('Thank you for your support! We will contact you shortly.');
+});
+function showSuccessMessage(message) {
+const successDiv = document.createElement('div');
+successDiv.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg';
+successDiv.textContent = message;
+document.body.appendChild(successDiv);
+setTimeout(() => successDiv.remove(), 3000);
+}
+</script>
+</body>
+</html>
